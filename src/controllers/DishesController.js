@@ -13,6 +13,9 @@ class DishesController {
             ingredients = JSON.parse(ingredients);
         }
         
+        // Convert price to a number
+        const numericPrice = parseFloat(price);
+
         //Handle picture upload
         const pictureFilename = request.file.filename;
         const diskStorage = new DiskStorage();
@@ -22,7 +25,7 @@ class DishesController {
         const [dish_id] = await knex("dishes").insert({
             name,
             picture: fileName,
-            price,
+            price: numericPrice,
             category,
             description,
             user_id,
@@ -52,6 +55,9 @@ class DishesController {
             ingredients = JSON.parse(ingredients);
         }
 
+        // Convert price to a number
+        const numericPrice = parseFloat(price);
+
         const dish = await knex("dishes").where({ id }).first();
 
         if(!dish){
@@ -79,7 +85,7 @@ class DishesController {
             .where({ id })
             .update({
                 name,
-                price,
+                price: numericPrice,
                 description,
                 category,
                 picture: fileName ? fileName : undefined,

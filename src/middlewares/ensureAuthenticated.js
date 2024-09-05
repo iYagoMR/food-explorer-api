@@ -10,7 +10,7 @@ function ensureAuthenticated(request, response, next) {
   }
 
   const [, token] = authHeader.split(' ');
-
+  
   try {
     const { role, sub: user_id } = verify(token, authConfig.jwt.secret);
 
@@ -20,7 +20,7 @@ function ensureAuthenticated(request, response, next) {
     };
 
     return next();
-  } catch {
+  } catch(error) {
     throw new AppError('Invalid JWT token', 401);
   }
 }

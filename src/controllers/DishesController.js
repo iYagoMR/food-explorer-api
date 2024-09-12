@@ -1,6 +1,7 @@
 const knex = require("../database/knex");
 const AppError = require("../utils/AppError");
 const DiskStorage = require("../providers/DiskStorage");
+const verifyUserAuthorization = require("../middlewares/verifyUserAuthorization");
 
 class DishesController {
     async create(request, response) {
@@ -47,7 +48,7 @@ class DishesController {
     }
 
     async update(request, response){
-        const { name, price, description, category } = request.body;
+        const { name, price, description, category, isFavorite } = request.body;
         let { ingredients = [] } = request.body;
         const { id } = request.params;
 
@@ -55,14 +56,26 @@ class DishesController {
             ingredients = JSON.parse(ingredients);
         }
 
-        // Convert price to a number
-        const numericPrice = parseFloat(price);
-
         const dish = await knex("dishes").where({ id }).first();
-
+        //Verify if dish exist
         if(!dish){
             throw new AppError("Dish not found");
         }
+
+        //If adding dish to favorites do the following and return reponse
+        if(isFavorite){
+            await knex("dishes")
+                .where({ id })
+                .update({
+                    isFavorite,
+                    updated_at: knex.fn.now()
+                })
+
+            return response.json();
+        }
+
+        // Convert price to a number
+        const numericPrice = parseFloat(price);
 
         //update picture
         let fileName;

@@ -13,7 +13,7 @@ class DishesController {
 
         return response.json();
     }
-
+    
     async delete(request, response){
         const user_id = request.user.id;
         const { dish_id } = request.params;

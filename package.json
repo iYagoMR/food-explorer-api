@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "node ./src/server.js",
+    "start": "node ./src/server.js && npm run migrate-and-seed",
     "dev": "nodemon ./src/server.js",
-    "migrate": "knex migrate:latest"
+    "migrate": "knex migrate:latest",
+    "migrate-and-seed": "node migrateAndSeed.js"
   },
   "keywords": [],
   "author": "Iago Romao",

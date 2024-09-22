@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "node ./src/server.js && npm run migrate-and-seed",
+    "start": "node ./src/server.js",
     "dev": "nodemon ./src/server.js",
     "migrate": "knex migrate:latest",
     "migrate-and-seed": "node migrateAndSeed.js"

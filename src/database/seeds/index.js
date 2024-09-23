@@ -32,115 +32,115 @@ exports.seed = async function(knex) {
     await knex('dishes').del();
     //Create dishes
     await knex("dishes").insert([
-        {
-            picture: 'src/assets/plates/Mask group-3.png',
-            name: "Greek salad",
-            price: 12,
-            category: "salad",
-            description: "A refreshing mix of cucumbers, tomatoes, olives, and feta cheese.",
-            created_at: knex.fn.now(),
-            updated_at: knex.fn.now()
-        },
-        {
-            picture: 'src/assets/plates/Mask group.png',
-            name: "Kale & chicken salad",
-            price: 12,
-            category: "salad",
-            description: "A hearty salad with grilled chicken, kale, and a light vinaigrette.",
-            created_at: knex.fn.now(),
-            updated_at: knex.fn.now()
-        },
-        {
-            picture: 'src/assets/plates/Mask group.png',
-            name: "House salad",
-            price: 12,
-            category: "salad",
-            description: "Mixed greens, tomatoes, and cucumbers topped with house-made dressing.",
-            created_at: knex.fn.now(),
-            updated_at: knex.fn.now()
-        },
-        {
-            picture: 'src/assets/plates/Mask group-8.png', // New picture for the added dish
-            name: "Caesar salad",
-            price: 14,
-            category: "salad",
-            description: "Crisp romaine lettuce, croutons, and Parmesan cheese with Caesar dressing.",
-            created_at: knex.fn.now(),
-            updated_at: knex.fn.now()
-        },
-        {
-            picture: 'src/assets/plates/Mask group-2.png',
-            name: "Shrimp",
-            price: 22,
-            category: "meal",
-            description: "Grilled shrimp served with garlic butter and seasonal vegetables.",
-            created_at: knex.fn.now(),
-            updated_at: knex.fn.now()
-        },
-        {
-            picture: 'src/assets/plates/Mask group-1.png',
-            name: "Bread & ham",
-            price: 12,
-            category: "meal",
-            description: "Rustic bread served with thinly sliced ham and a side of mustard.",
-            created_at: knex.fn.now(),
-            updated_at: knex.fn.now()
-        },
-        {
-            picture: 'src/assets/plates/Mask group-5.png',
-            name: "Puff pastry",
-            price: 10,
-            category: "meal",
-            description: "Light and flaky puff pastry filled with savory ingredients.",
-            created_at: knex.fn.now(),
-            updated_at: knex.fn.now()
-        },
-        {
-            picture: 'src/assets/plates/Mask group-9.png', // New picture for the added dish
-            name: "Grilled steak",
-            price: 28,
-            category: "meal",
-            description: "Juicy grilled steak served with mashed potatoes and green beans.",
-            created_at: knex.fn.now(),
-            updated_at: knex.fn.now()
-        },
-        {
-            picture: 'src/assets/plates/Mask group-4.png',
-            name: "Plum galette",
-            price: 16,
-            category: "dessert",
-            description: "A rustic tart filled with fresh plums and served with whipped cream.",
-            created_at: knex.fn.now(),
-            updated_at: knex.fn.now()
-        },
-        {
-            picture: 'src/assets/plates/Mask group-6.png',
-            name: "Macaron",
-            price: 4,
-            category: "dessert",
-            description: "Delicate French macarons in assorted flavors.",
-            created_at: knex.fn.now(),
-            updated_at: knex.fn.now()
-        },
-        {
-            picture: 'src/assets/plates/Mask group-7.png',
-            name: "Plum cake",
-            price: 4,
-            category: "dessert",
-            description: "Moist plum cake with a hint of cinnamon and nutmeg.",
-            created_at: knex.fn.now(),
-            updated_at: knex.fn.now()
-        },
-        {
-            picture: 'src/assets/plates/Mask group-10.png', // New picture for the added dish
-            name: "Chocolate mousse",
-            price: 6,
-            category: "dessert",
-            description: "Rich and creamy chocolate mousse topped with whipped cream.",
-            created_at: knex.fn.now(),
-            updated_at: knex.fn.now()
-        }
-    ]);
+    {
+        picture: 'src/assets/plates/Mask-group-3.png',
+        name: "Greek salad",
+        price: 12,
+        category: "salad",
+        description: "A refreshing mix of cucumbers, tomatoes, olives, and feta cheese.",
+        created_at: knex.fn.now(),
+        updated_at: knex.fn.now()
+    },
+    {
+        picture: 'src/assets/plates/Mask-group.png',
+        name: "Kale & chicken salad",
+        price: 12,
+        category: "salad",
+        description: "A hearty salad with grilled chicken, kale, and a light vinaigrette.",
+        created_at: knex.fn.now(),
+        updated_at: knex.fn.now()
+    },
+    {
+        picture: 'src/assets/plates/Mask-group.png',
+        name: "House salad",
+        price: 12,
+        category: "salad",
+        description: "Mixed greens, tomatoes, and cucumbers topped with house-made dressing.",
+        created_at: knex.fn.now(),
+        updated_at: knex.fn.now()
+    },
+    {
+        picture: 'src/assets/plates/Mask-group-8.png', // New picture for the added dish
+        name: "Caesar salad",
+        price: 14,
+        category: "salad",
+        description: "Crisp romaine lettuce, croutons, and Parmesan cheese with Caesar dressing.",
+        created_at: knex.fn.now(),
+        updated_at: knex.fn.now()
+    },
+    {
+        picture: 'src/assets/plates/Mask-group-2.png',
+        name: "Shrimp",
+        price: 22,
+        category: "meal",
+        description: "Grilled shrimp served with garlic butter and seasonal vegetables.",
+        created_at: knex.fn.now(),
+        updated_at: knex.fn.now()
+    },
+    {
+        picture: 'src/assets/plates/Mask-group-1.png',
+        name: "Bread & ham",
+        price: 12,
+        category: "meal",
+        description: "Rustic bread served with thinly sliced ham and a side of mustard.",
+        created_at: knex.fn.now(),
+        updated_at: knex.fn.now()
+    },
+    {
+        picture: 'src/assets/plates/Mask-group-5.png',
+        name: "Puff pastry",
+        price: 10,
+        category: "meal",
+        description: "Light and flaky puff pastry filled with savory ingredients.",
+        created_at: knex.fn.now(),
+        updated_at: knex.fn.now()
+    },
+    {
+        picture: 'src/assets/plates/Mask-group-9.png', // New picture for the added dish
+        name: "Grilled steak",
+        price: 28,
+        category: "meal",
+        description: "Juicy grilled steak served with mashed potatoes and green beans.",
+        created_at: knex.fn.now(),
+        updated_at: knex.fn.now()
+    },
+    {
+        picture: 'src/assets/plates/Mask-group-4.png',
+        name: "Plum galette",
+        price: 16,
+        category: "dessert",
+        description: "A rustic tart filled with fresh plums and served with whipped cream.",
+        created_at: knex.fn.now(),
+        updated_at: knex.fn.now()
+    },
+    {
+        picture: 'src/assets/plates/Mask-group-6.png',
+        name: "Macaron",
+        price: 4,
+        category: "dessert",
+        description: "Delicate French macarons in assorted flavors.",
+        created_at: knex.fn.now(),
+        updated_at: knex.fn.now()
+    },
+    {
+        picture: 'src/assets/plates/Mask-group-7.png',
+        name: "Plum cake",
+        price: 4,
+        category: "dessert",
+        description: "Moist plum cake with a hint of cinnamon and nutmeg.",
+        created_at: knex.fn.now(),
+        updated_at: knex.fn.now()
+    },
+    {
+        picture: 'src/assets/plates/Mask-group-10.png', // New picture for the added dish
+        name: "Chocolate mousse",
+        price: 6,
+        category: "dessert",
+        description: "Rich and creamy chocolate mousse topped with whipped cream.",
+        created_at: knex.fn.now(),
+        updated_at: knex.fn.now()
+    }
+]);
 
     await knex('ingredients').del();
     //Seed ingredients

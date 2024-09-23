@@ -33,7 +33,7 @@ exports.seed = async function(knex) {
     //Create dishes
     await knex("dishes").insert([
     {
-        picture: 'src/assets/plates/Mask-group-3.png',
+        picture: 'assets/plates/Mask-group-3.png',
         name: "Greek salad",
         price: 12,
         category: "salad",
@@ -42,7 +42,7 @@ exports.seed = async function(knex) {
         updated_at: knex.fn.now()
     },
     {
-        picture: 'src/assets/plates/Mask-group.png',
+        picture: 'assets/plates/Mask-group.png',
         name: "Kale & chicken salad",
         price: 12,
         category: "salad",
@@ -51,7 +51,7 @@ exports.seed = async function(knex) {
         updated_at: knex.fn.now()
     },
     {
-        picture: 'src/assets/plates/Mask-group.png',
+        picture: 'assets/plates/Mask-group.png',
         name: "House salad",
         price: 12,
         category: "salad",
@@ -60,7 +60,7 @@ exports.seed = async function(knex) {
         updated_at: knex.fn.now()
     },
     {
-        picture: 'src/assets/plates/Mask-group-8.png', // New picture for the added dish
+        picture: 'assets/plates/Mask-group-8.png', // New picture for the added dish
         name: "Caesar salad",
         price: 14,
         category: "salad",
@@ -69,7 +69,7 @@ exports.seed = async function(knex) {
         updated_at: knex.fn.now()
     },
     {
-        picture: 'src/assets/plates/Mask-group-2.png',
+        picture: 'assets/plates/Mask-group-2.png',
         name: "Shrimp",
         price: 22,
         category: "meal",
@@ -78,7 +78,7 @@ exports.seed = async function(knex) {
         updated_at: knex.fn.now()
     },
     {
-        picture: 'src/assets/plates/Mask-group-1.png',
+        picture: 'assets/plates/Mask-group-1.png',
         name: "Bread & ham",
         price: 12,
         category: "meal",
@@ -87,7 +87,7 @@ exports.seed = async function(knex) {
         updated_at: knex.fn.now()
     },
     {
-        picture: 'src/assets/plates/Mask-group-5.png',
+        picture: 'assets/plates/Mask-group-5.png',
         name: "Puff pastry",
         price: 10,
         category: "meal",
@@ -96,7 +96,7 @@ exports.seed = async function(knex) {
         updated_at: knex.fn.now()
     },
     {
-        picture: 'src/assets/plates/Mask-group-9.png', // New picture for the added dish
+        picture: 'assets/plates/Mask-group-9.png', // New picture for the added dish
         name: "Grilled steak",
         price: 28,
         category: "meal",
@@ -105,7 +105,7 @@ exports.seed = async function(knex) {
         updated_at: knex.fn.now()
     },
     {
-        picture: 'src/assets/plates/Mask-group-4.png',
+        picture: 'assets/plates/Mask-group-4.png',
         name: "Plum galette",
         price: 16,
         category: "dessert",
@@ -114,7 +114,7 @@ exports.seed = async function(knex) {
         updated_at: knex.fn.now()
     },
     {
-        picture: 'src/assets/plates/Mask-group-6.png',
+        picture: 'assets/plates/Mask-group-6.png',
         name: "Macaron",
         price: 4,
         category: "dessert",
@@ -123,7 +123,7 @@ exports.seed = async function(knex) {
         updated_at: knex.fn.now()
     },
     {
-        picture: 'src/assets/plates/Mask-group-7.png',
+        picture: 'assets/plates/Mask-group-7.png',
         name: "Plum cake",
         price: 4,
         category: "dessert",
@@ -132,7 +132,7 @@ exports.seed = async function(knex) {
         updated_at: knex.fn.now()
     },
     {
-        picture: 'src/assets/plates/Mask-group-10.png', // New picture for the added dish
+        picture: 'assets/plates/Mask-group-10.png', // New picture for the added dish
         name: "Chocolate mousse",
         price: 6,
         category: "dessert",

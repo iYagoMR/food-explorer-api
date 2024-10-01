@@ -1,5 +1,6 @@
 const { hash } = require("bcryptjs");
 
+
 exports.seed = async function(knex) {
 
     // Hash the passwords before inserting

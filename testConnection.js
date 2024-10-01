@@ -3,7 +3,6 @@ const knex = require('./src/database/knex'); // Adjust the path to your knex ins
 async function testConnection() {
   try {
     // Query the "dishes" table
-    const dishes = await knex("dishes");
 
     // If there are results, it will be an array
     if (dishes.length > 0) {

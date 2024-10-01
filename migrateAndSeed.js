@@ -1,20 +1,16 @@
 const knex = require('knex');
-const knexfile = require('./knexfile'); // Adjust the path as needed
 
-const db = knex(knexfile.development);
+const db = require('./src/database/knex');
 
 async function migrateAndSeed() {
   try {
-    // Disable foreign key constraints
-    await db.raw('PRAGMA foreign_keys = OFF');
-
-    // Fetch all tables
-    const tables = await db.raw("SELECT name FROM sqlite_master WHERE type='table'");
+    // Fetch all tables (PostgreSQL version)
+    const tables = await db.raw("SELECT table_name FROM information_schema.tables WHERE table_schema = 'public'");
 
     // Drop all tables
-    for (const table of tables) {
-      if (table.name !== 'sqlite_sequence') { // Don't delete sqlite_sequence
-        await db.schema.dropTableIfExists(table.name);
+    for (const table of tables.rows) {  // Access the table names through rows
+      if (table.table_name !== 'knex_migrations' && table.table_name !== 'knex_migrations_lock') { // Don't delete migration tables
+        await db.schema.dropTableIfExists(table.table_name);
       }
     }
 
@@ -30,6 +26,9 @@ async function migrateAndSeed() {
   } catch (error) {
     console.error('Error during migration and seeding:', error);
     throw error; // Re-throw the error to handle it in the server.js
+  } finally {
+    // Close the database connection
+    await db.destroy();
   }
 }
 

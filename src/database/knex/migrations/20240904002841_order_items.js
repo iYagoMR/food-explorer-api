@@ -4,12 +4,23 @@ exports.up = knex => knex.schema.createTable("order_items", table => {
     table.float("price").notNullable();
     table.integer("quantity").notNullable().defaultTo(1);
     
-    table.integer("order_id").references("id").inTable("orders").onDelete("CASCADE");
-    table.integer("dish_id").references("id").inTable("dishes");
-    table.integer("user_id").references("id").inTable("users");
+    table.integer("order_id")
+         .references("id")
+         .inTable("orders")
+         .onDelete("CASCADE");  // Cascade delete when an order is deleted
     
-    table.timestamp("created_at").default(knex.fn.now());
-    table.timestamp("updated_at").default(knex.fn.now());
+    table.integer("dish_id")
+         .references("id")
+         .inTable("dishes")
+         .onDelete("SET NULL");  // Optional: Set to NULL if the dish is deleted
+
+    table.integer("user_id")
+         .references("id")
+         .inTable("users")
+         .onDelete("SET NULL");  // Optional: Set to NULL if the user is deleted
+    
+    table.timestamp("created_at").defaultTo(knex.fn.now());  // Use defaultTo
+    table.timestamp("updated_at").defaultTo(knex.fn.now());  // Use defaultTo
 });
 
 exports.down = knex => knex.schema.dropTable("order_items");

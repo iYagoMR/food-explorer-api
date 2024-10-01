@@ -16,4 +16,9 @@ routes.use("/orders", ordersRouter);
 routes.use("/addresses", addressesRouter);
 routes.use("/dishes", dishesRouter);
 
+// Handle root path
+routes.get("/", (req, res) => {
+    res.send("API Root");
+});
+
 module.exports = routes;

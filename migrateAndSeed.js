@@ -2,20 +2,11 @@ const knex = require('./src/database/knex');
 
 async function migrateAndSeed() {
   try {
-    // Fetch all tables (PostgreSQL version)
-    // const tables = await knex.raw("SELECT table_name FROM information_schema.tables WHERE table_schema = 'public'");
 
-    // // Drop all tables except migration-related ones
-    // for (const table of tables.rows) {
-    //   if (table.table_name !== 'knex_migrations' && table.table_name !== 'knex_migrations_lock') {
-    //     await knex.schema.dropTableIfExists(table.table_name);
-    //   }
-    // }
-
-    // Run migrations
-    // console.log('Running migrations...');
-    // await knex.migrate.latest();
-    // console.log('Migrations completed.');
+    //Run migrations
+    console.log('Running migrations...');
+    await knex.migrate.latest();
+    console.log('Migrations completed.');
 
     // Seed data
     console.log('Seeding data...');

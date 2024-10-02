@@ -39,23 +39,28 @@ app.use((err, request, response, next) => {
   });
 });
 
-// Run migrations and seed the data before exporting the handler
-async function runMigrations() {
-  if (process.env.RUN_MIGRATIONS === 'true') { // Control with environment variable
-    try {
-      await migrateAndSeed();
-      console.log("Migrations and seed data complete.");
-    } catch (error) {
-      console.error("Error running migrations:", error);
-      throw new Error("Failed to run migrations");
-    }
-  }
-}
+// const PORT = process.env.PORT || 3000;
+// app.listen(PORT, () => {
+//   console.log(`Server running on http://localhost:${PORT}`);
+// });
 
-// Immediately invoke to run migrations when the Lambda function is deployed
-(async () => {
-  await runMigrations(); // Wait for migrations before proceeding
-})();
+// // Run migrations and seed the data before exporting the handler
+// async function runMigrations() {
+//   if (process.env.RUN_MIGRATIONS === 'true') { // Control with environment variable
+//     try {
+//       await migrateAndSeed();
+//       console.log("Migrations and seed data complete.");
+//     } catch (error) {
+//       console.error("Error running migrations:", error);
+//       throw new Error("Failed to run migrations");
+//     }
+//   }
+// }
+
+// // Immediately invoke to run migrations when the Lambda function is deployed
+// (async () => {
+//   await runMigrations(); // Wait for migrations before proceeding
+// })();
 
 // Export the serverless handler for AWS Lambda
 module.exports.handler = serverless(app);

@@ -164,14 +164,54 @@ class DishesController {
 
     async index(request, response, next) {
         try {
-            // Example: Retrieving all dishes (can be expanded with filtering logic)
-            const dishes = await knex("dishes").orderBy("name");
+            const { name, ingredients, ingredient } = request.query;
 
-            if (!dishes.length) {
-                throw new AppError("No dishes found", 404);
+            let dishes;
+
+            if (ingredients) {
+                const filterIngredients = ingredients.split(',').map(ingredient => ingredient.trim());
+
+                dishes = await knex("ingredients")
+                    .select([
+                        "dishes.id",
+                        "dishes.name",
+                    ])
+                    .whereILike("dishes.name", `%${name}%`) // PostgreSQL equivalent for whereLike()
+                    .whereIn("ingredients.name", filterIngredients)
+                    .innerJoin("dishes", "dishes.id", "ingredients.dish_id")
+                    .groupBy("dishes.id")
+                    .orderBy("dishes.name");
+            } else {
+                dishes = await knex("dishes")
+                    .whereILike("name", `%${name}%`) // PostgreSQL equivalent for whereLike()
+                    .orderBy("name");
+
+                if (dishes.length < 1) {
+                    dishes = await knex("ingredients")
+                        .select([
+                            "dishes.id",
+                            "dishes.name",
+                            "dishes.price",
+                            "dishes.picture"
+                        ])
+                        .whereILike("ingredients.name", `%${ingredient}%`) // PostgreSQL equivalent for whereLike()
+                        .innerJoin("dishes", "dishes.id", "ingredients.dish_id")
+                        .groupBy("dishes.id")
+                        .orderBy("dishes.name");
+                }
             }
 
-            return response.json(dishes);
+            const userIngredients = await knex("ingredients");
+
+            const dishesWithIngredients = dishes.map(dish => {
+                const dishIngredients = userIngredients.filter(ingredient => ingredient.dish_id === dish.id);
+                return {
+                    ...dish,
+                    ingredients: dishIngredients
+                };
+            });
+
+            return response.json(dishesWithIngredients);
         } catch (error) {
             next(error);
         }

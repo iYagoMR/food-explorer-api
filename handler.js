@@ -23,7 +23,10 @@ app.use("/files", express.static(uploadConfig.UPLOADS_FOLDER));
 app.use(routes);
 
 // Error handling middleware
+// Error handling middleware
 app.use((err, request, response, next) => {
+  console.error("Error occurred:", err); // Log the error to CloudWatch
+
   if (err instanceof AppError) {
     return response.status(err.statusCode).json({
       status: "error",
@@ -31,31 +34,23 @@ app.use((err, request, response, next) => {
     });
   }
 
-  console.error(err);
-
   return response.status(500).json({
     status: "error",
-    message: "Internal server error",
+    message: "Internal Server Error",
+    error: err.message, // Optionally include the error message for debugging
   });
 });
 
-// Run migrations and seed the data before exporting the handler
-async function runMigrations() {
-  if (process.env.RUN_MIGRATIONS === 'true') { // Control with environment variable
-    try {
-      await migrateAndSeed();
-      console.log("Migrations and seed data complete.");
-    } catch (error) {
-      console.error("Error running migrations:", error);
-      throw new Error("Failed to run migrations");
-    }
-  }
-}
+// const PORT = process.env.PORT || 3000;
+// app.listen(PORT, () => {
+//   console.log(`Server running on http://localhost:${PORT}`);
+// });
 
 // Immediately invoke to run migrations when the Lambda function is deployed
-(async () => {
-  await runMigrations(); // Wait for migrations before proceeding
-})();
+// (async () => {
+//   await migrateAndSeed();
+//   console.log("Migrations and seed data complete.");
+// })();
 
 // Export the serverless handler for AWS Lambda
 module.exports.handler = serverless(app);

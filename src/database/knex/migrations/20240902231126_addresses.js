@@ -1,5 +1,5 @@
 exports.up = knex => knex.schema.createTable("addresses", table => {
-    table.increments("id");
+    table.increments("id").primary();  // Explicitly define primary key
     table.text("address").notNullable();
     table.text("city").notNullable();
     table.text("state").notNullable();
@@ -7,7 +7,11 @@ exports.up = knex => knex.schema.createTable("addresses", table => {
     table.integer("user_id")
          .references("id")
          .inTable("users")
-         .onDelete("CASCADE");  // Cascade delete when user is deleted
+         .onDelete("CASCADE")
+         .index();  // Index on user_id
+
+    // Optionally add a ZIP code field
+    // table.text("zip_code").notNullable();
 
     table.timestamp("created_at").defaultTo(knex.fn.now());  // Use defaultTo
 });

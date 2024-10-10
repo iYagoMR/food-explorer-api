@@ -1,4 +1,4 @@
-const { verify } = require('jsonwebtoken');
+const { verify, decode } = require('jsonwebtoken');
 const AppError = require('../utils/AppError');
 const authConfig = require('../configs/auth');
 
@@ -12,6 +12,10 @@ function ensureAuthenticated(request, response, next) {
   const [, token] = authHeader.split(' ');
   
   try {
+    // Decode the token without verification (just for logging purposes)
+    const decodedToken = decode(token);
+    console.log('Decoded token:', decodedToken);
+
     const { role, sub: user_id } = verify(token, authConfig.jwt.secret);
 
     request.user = {

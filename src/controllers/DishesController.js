@@ -24,13 +24,13 @@ class DishesController {
             if (!request.file) {
                 throw new AppError("Picture file is required", 400);
             }
-
+            
             const pictureFilename = request.file.filename;
             const diskStorage = new DiskStorage();
             const fileName = await diskStorage.saveFile(pictureFilename);
 
             // Insert the new dish into the 'dishes' table
-            const [dish_id] = await knex("dishes").insert({
+            const [{ id: dish_id }] = await knex("dishes").insert({
                 name,
                 picture: fileName,
                 price: numericPrice,

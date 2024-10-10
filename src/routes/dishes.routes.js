@@ -12,7 +12,7 @@ const upload = multer(uploadConfig.MULTER)
 
 const dishesController = new DishesController();
 
-//dishesRoutes.use(ensureAuthenticated);
+dishesRoutes.use(ensureAuthenticated);
 
 dishesRoutes.get("/", dishesController.index);
 dishesRoutes.get("/:id", dishesController.show);

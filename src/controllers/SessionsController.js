@@ -18,7 +18,7 @@ class SessionsController {
 
       // Compare the provided password with the hashed password stored in the database
       const passwordMatched = await compare(password, user.password);
-
+      
       if (!passwordMatched) {
         throw new AppError("E-mail or password is incorrect.", 401);
       }

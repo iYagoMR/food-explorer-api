@@ -4,9 +4,9 @@ async function migrateAndSeed() {
   try {
 
     //Run migrations
-    console.log('Running migrations...');
-    await knex.migrate.latest();
-    console.log('Migrations completed.');
+    // console.log('Running migrations...');
+    //await knex.migrate.latest();
+    // console.log('Migrations completed.');
 
     // Seed data
     console.log('Seeding data...');

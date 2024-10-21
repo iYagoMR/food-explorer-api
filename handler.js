@@ -41,10 +41,10 @@ app.use((err, request, response, next) => {
   });
 });
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
-});
+// const PORT = process.env.PORT || 3000;
+// app.listen(PORT, () => {
+//   console.log(`Server running on http://localhost:${PORT}`);
+// });
 
 // Immediately invoke to run migrations when the Lambda function is deployed
 // (async () => {
@@ -53,4 +53,4 @@ app.listen(PORT, () => {
 // })();
 
 // Export the serverless handler for AWS Lambda
-//module.exports.handler = serverless(app);
+module.exports.handler = serverless(app);

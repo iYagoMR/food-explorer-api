@@ -6,7 +6,7 @@ const knex = require('knex')({
     host: 'food-explorer.c9umcogwylxv.us-east-1.rds.amazonaws.com', // Replace with your RDS endpoint
     user: 'foodexp', // RDS username
     port: 5432,
-    password: process.env.DB_PASSWORD, // RDS password
+    password: "romaozinho...123", // RDS password
     database: 'foodexp', // Name of your PostgreSQL database
     ssl: {
       require: true,

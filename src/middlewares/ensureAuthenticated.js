@@ -13,8 +13,8 @@ function ensureAuthenticated(request, response, next) {
   
   try {
     // Decode the token without verification (just for logging purposes)
-    const decodedToken = decode(token);
-    console.log('Decoded token:', decodedToken);
+    // const decodedToken = decode(token);
+    // console.log('Decoded token:', decodedToken);
 
     const { role, sub: user_id } = verify(token, authConfig.jwt.secret);
 

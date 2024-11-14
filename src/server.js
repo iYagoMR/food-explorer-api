@@ -51,7 +51,7 @@ async function runMigrations() {
 }
 
 // Run migrations asynchronously (once) before starting the handler
-runMigrations();
+//runMigrations();
 
 //Start the server
 const PORT = process.env.PORT || 3000;

@@ -157,7 +157,7 @@ class DishesController {
                 .select([
                     "dishes.id",
                     "dishes.name",
-                    //"dishes.user_id",
+                    "dishes.user_id",
                 ])
                 //.where("dishes.user_id", user_id)
                 .whereLike("name", `%${name}%`)
@@ -176,7 +176,8 @@ class DishesController {
                     "dishes.id",
                     "dishes.name",
                     "dishes.price",
-                    "dishes.picture"
+                    "dishes.picture",
+                    "dishes.user_id"
                 ])
                 .whereLike("ingredients.name", `%${ingredient}%`)
                 .innerJoin("dishes", "dishes.id", "ingredients.dish_id")

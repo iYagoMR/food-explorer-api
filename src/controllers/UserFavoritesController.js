@@ -30,7 +30,8 @@ class DishesController {
             .select([
                 "dishes.id",
                 "dishes.name",
-                "dishes.picture"
+                "dishes.picture",
+                "dishes.user_id"
             ])
             .where("userFavorites.user_id", user_id)
             .innerJoin("dishes", "dishes.id", "userFavorites.dish_id")

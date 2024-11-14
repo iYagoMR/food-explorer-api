@@ -2,11 +2,6 @@
 
 Food Explorer is a simple, DoorDash-like application I developed for my portfolio, showcasing both front-end and back-end development skills. The app allows users to browse food options, add items to their cart, and proceed to checkout, similar to popular food delivery services.
 
-## Key Features
-
-- **User Interface:** Built with ReactJS, providing an interactive and responsive user experience.
-- **Backend:** Powered by a Node.js backend (SQLite database), with API routes handling user authentication, orders, and dish management.
-- **Responsive Design:** Fully responsive layout for smooth operation on both desktop and mobile devices.
 
 ## How to Run the Project Locally
 
@@ -37,3 +32,10 @@ npm run dev
 
 - The Frontend will be available at http://localhost:5173/ (or whichever URL your terminal provides).
 - The Backend will be accessible based on the configuration in the backend repository.
+
+
+## Key Features
+
+- **User Interface:** Built with ReactJS, providing an interactive and responsive user experience.
+- **Backend:** Powered by a Node.js backend (SQLite database), with API routes handling user authentication, orders, and dish management.
+- **Responsive Design:** Fully responsive layout for smooth operation on both desktop and mobile devices.
